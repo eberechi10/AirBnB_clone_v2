@@ -59,7 +59,6 @@ class DBStorage:
         """Add obj to the current database session."""
         self.__session.add(obj)
 
-
     def close(self):
         self.__session.close()
 
@@ -74,10 +73,10 @@ class DBStorage:
 
     def reload(self):
         """Create all tables in the database and initialize a new session."""
-        Base.metadata.create_all(self.__engine)
+        Base.metadata.create_a
+        (self.__engine)
         session_factory = sessionmaker(
             bind=self.__engine, expire_on_commit=False
         )
         session = scoped_session(session_factory)
         self.__session = session()
-
