@@ -52,7 +52,6 @@ class TestCity(unittest.TestCase):
     @unittest.skipIf(
         os.getenv("HBNB_TYPE_STORAGE") == "db",
         "test for work in Filestorage",)
-
     def test_save_city(self):
         """test if the save works"""
         self.city.save()
@@ -69,7 +68,7 @@ class TestCity(unittest.TestCase):
         self.assertTrue("updated_at" in self.city.__dict__)
         self.assertTrue("state_id" in self.city.__dict__)
         self.assertTrue("name" in self.city.__dict__)
-    
+
     def test_to_dict_city(self):
         """test if dictionary works"""
         self.assertEqual("to_dict" in dir(self.city), True)

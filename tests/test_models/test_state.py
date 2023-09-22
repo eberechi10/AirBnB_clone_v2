@@ -55,7 +55,6 @@ class TestState(unittest.TestCase):
         """test for docstrings"""
         self.assertIsNotNone(State.__doc__)
 
-    
     @unittest.skipIf(
         os.getenv('HBNB_TYPE_STORAGE') == 'db',
         "test only work in Filestorage")

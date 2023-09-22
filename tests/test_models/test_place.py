@@ -53,7 +53,7 @@ class TestCity(unittest.TestCase):
     def test_checking_for_docstring_city(self):
         """test for docstrings"""
         self.assertIsNotNone(City.__doc__)
-    
+
     def test_attribute_types_city(self):
         """test attribute type for City"""
         self.assertEqual(type(self.city.name), str)
@@ -62,10 +62,10 @@ class TestCity(unittest.TestCase):
     @unittest.skipIf(
         os.getenv("HBNB_TYPE_STORAGE") == "db",
         "This test only work in Filestorage",)
-
     def test_save_city(self):
         """test if the save"""
         self.city.save()
+
         self.assertNotEqual(self.city.created_at, self.city.updated_at)
 
     def test_to_dict_city(self):

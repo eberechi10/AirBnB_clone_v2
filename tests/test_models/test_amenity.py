@@ -60,7 +60,7 @@ class TestAmenity(unittest.TestCase):
         self.assertTrue('created_at' in self.amenity.__dict__)
         self.assertTrue('updated_at' in self.amenity.__dict__)
         self.assertTrue('name' in self.amenity.__dict__)
-   
+
     def test_to_dict_amenity(self):
         """ test for the dictionary works"""
         self.assertEqual('to_dict' in dir(self.amenity), True)

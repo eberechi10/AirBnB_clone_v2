@@ -48,7 +48,7 @@ class TestBaseModel(unittest.TestCase):
         style = pep8.StyleGuide(quiet=True)
         pep = style.check_files(['models/base_model.py'])
         self.assertEqual(pep.total_errors, 0, "fix pep8")
-    
+
     def test_init_basemodel(self):
         """test for type BaseModel"""
         self.assertTrue(isinstance(self.base, Basemodel))

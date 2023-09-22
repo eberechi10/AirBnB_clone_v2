@@ -57,7 +57,7 @@ class TestReview(unittest.TestCase):
     def test_checking_for_docstring_review(self):
         """checking for docstrings"""
         self.assertIsNotNone(Review.__doc__)
-   
+
     def test_attribute_types_review(self):
         """test attribute type for Review"""
         self.assertEqual(type(self.rev.text), str)
@@ -67,7 +67,6 @@ class TestReview(unittest.TestCase):
     @unittest.skipIf(
         os.getenv("HBNB_TYPE_STORAGE") == "db",
         "test only work in Filestorage",)
-
     def test_to_dict_review(self):
         """test if dictionary works"""
         self.assertEqual("to_dict" in dir(self.rev), True)
