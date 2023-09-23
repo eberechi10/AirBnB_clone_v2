@@ -1,22 +1,31 @@
 #!/usr/bin/python3
 
-"""A module to defines the User class"""
+"""A module to defines class User for Hnbn"""
 
+from models.base_model import BaseModel, Base
+from models import storage_type
 
-from models.base_model import Base, BaseModel
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 
 
 class User(BaseModel, Base):
-    """initializes the use
+    """define the user  class by attributes"""
 
-    """
+    __tablename__ = 'users'
+    if storage_type == 'db':
+        email = Column(String(128), nullable=False)
+        password = Column(String(128), nullable=False)
+        first_name = Column(String(128), nullable=True)
 
-    __tablename__ = "users"
-    email = Column(String(128), nullable=False)
-    password = Column(String(128), nullable=False)
-    first_name = Column(String(128))
-    last_name = Column(String(128))
-    places = relationship("Place", backref="user", cascade="delete")
-    reviews = relationship("Review", backref="user", cascade="delete")
+        last_name = Column(String(128), nullable=True)
+        places = relationship('Place', backref='user',
+                              cascade='all, delete, delete-orphan')
+        reviews = relationship('Review', backref='user',
+                               cascade='all, delete, delete-orphan')
+    else:
+        email = ""
+        password = ""
+
+        first_name = ""
+        last_name = ""
