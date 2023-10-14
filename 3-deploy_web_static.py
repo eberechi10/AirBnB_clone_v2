@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""script (based on the file 2-do_deploy_web_static.py) that creates and distributes
+"""script (based on the file 2-do_deploy_web_static.py)
 an archive to your web servers, using the function deploy
 """
 import os.path
@@ -16,7 +16,7 @@ def do_pack():
     """archive of the directory web_static."""
 
     dati = datetime.utcnow()
-    file = "versions/web_static_{}{}{}{}{}{}.tgz".format(dt.year,
+    file = "versions/web_static_{}{}{}{}{}{}.tgz".format(dati.year,
                                                          dati.month,
                                                          dati.day,
                                                          dati.hour,
@@ -30,7 +30,7 @@ def do_pack():
     return file
 
 
-def do_deploy(archive_path):
+def do_deploy(archive_p):
     """ module to distributes an archive to a web server.
     Args:
         archive_p: path of the archive.
@@ -38,7 +38,7 @@ def do_deploy(archive_path):
         If the file doesn't exist at archive_p or error occurs - False.
         Otherwise - True.
     """
-    if os.path.isfile(archive_path) is False:
+    if os.path.isfile(archive_p) is False:
         return False
     file = archive_p.split("/")[-1]
     name = file.split(".")[0]
